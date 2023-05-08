@@ -4,9 +4,10 @@
 
 1. ## Installeer de volgende packages:
 
+- Microsoft.EntityFrameworkCore
 - Microsoft.EntityFrameworkCore.Tools
 - Microsoft.EntityFrameworkCore.Design
-- Microsoft.EntityFrameworkCore.SqlServer // of een andere database provider
+- Microsoft.EntityFrameworkCore.Sqlite // of een andere database provider
 
 1. ## Bedenk je structuur:
 
