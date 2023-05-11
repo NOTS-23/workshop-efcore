@@ -4,23 +4,17 @@ using MusicPrepDemo.Repositories;
 
 namespace MusicPrepDemo {
   public class Program {
-    static async void Main(string[] args) {
+    static async Task Main(string[] args) {
       using var db = new DataContext();
       Console.WriteLine("Hello, World!");
 
-      var repository = new GeneriekeRepository<Artiest>(db);
+      var artiestRepository = new GeneriekeRepository<Artiest>(db);
+        Artiest? artiest = await artiestRepository.Find(a => a.Naam == "Bach");
+        Console.WriteLine(artiest.Id);
 
-      if (await repository.GetAll() == null) {
-        var artiest = new Artiest {
-          Naam = "The Beatles",
-          Land = "UK",
-          Geboortedatum = new DateTime(1960, 1, 1)
-        };
-        await repository.Add(artiest);
-      }
-
-      var artiest = await repository.Find
-
+            var albumRepository = new GeneriekeRepository<Album>(db);
+            Album? album = await albumRepository.Find(a => a.Artiest.Naam == "Bach");
+            Console.WriteLine(album.Id);
     }
   }
 }

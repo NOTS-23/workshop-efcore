@@ -35,7 +35,7 @@ namespace MusicPrepDemo.Repositories {
       _table.Update(entity);
     }
 
-    public async Task<T?> Find(Func<bool, T> predicate) {
+    public async Task<T?> Find(Func<T, bool> predicate) {
       return _table.FirstOrDefault(predicate);
     }
   }
